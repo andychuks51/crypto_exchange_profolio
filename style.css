@@ -361,7 +361,7 @@ ul li {
 .services-content__core-value-heading,
 .services-content__testimonial-heading {
     font-size: calc(25/ 16 * 1rem);
-    margin-block-end: calc(20/ 16 * 1rem);
+    margin-block-end: calc(50/ 16 * 1rem);
 }
 
 .services-content__service-card-container,
@@ -382,7 +382,6 @@ ul li {
     row-gap: calc(10/ 16 * 1rem);
 }
 
-
 .services-content__service-card-img, 
 .services-content__core-value-card-img {
     grid-column: 1/2;
@@ -400,16 +399,20 @@ ul li {
 .services-content__testimonial-card-item {
     width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 50%);
+    grid-template-rows: 30% 10% 60%;
 }
 
 .services-content__testimonial-card-img {
     width: calc(80/ 16 * 1rem);
     border-radius: 40%;
+    grid-column: 1/2;
+    grid-row: 1/2;
 }
 
 .service-content__testimonial-card-name {
     font-size: calc(20/ 16 * 1rem);
+    grid-column: 1/2;
+    grid-row: 2/2;
 }
 
 .services-content__testimonial-card-comment {
@@ -419,6 +422,8 @@ ul li {
     background-repeat: no-repeat;
     padding: calc(10/ 16 * 1rem);
     border: 1px solid var(--primary-color);
+    grid-column: 1/2;
+    grid-row: 3/4;
 }
 
 .contact-content {
