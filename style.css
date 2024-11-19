@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #4061bf;
-  --secondary-color: #bf9e40;
+  --primary-color: #B5E6DA;
+  --secondary-color: #E6DAB5;
 }
 
 * {
@@ -25,19 +25,43 @@ ul li {
 
 .flex {
   display: flex;
-}
-
-.grid {
-    display: grid;
-}
-
-.header {
-  height: calc(100/ 16 * 1rem);
-  width: 100%;
-  padding-inline: calc(40 / 16 * 1rem);
-  margin-block: calc(14 / 16 * 1rem);
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+.grid  {
+  display: grid;
+}
+
+.top__bar {
+    position: fixed;
+    bottom: 50%;
+    width: calc(30/ 16 * 1rem);
+    height: calc(30/ 16 * 1rem);
+    background-color: #000;
+    border-radius: 50%;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.top__bar-link {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.top__bar-link:active {
+    transform: scale(2);
+}
+
+header {
+   position: relative;
+   width: 100%; 
+   background-color: #B5E6DA;  
 }
 
 .header__logo {
@@ -49,6 +73,11 @@ ul li {
   justify-content: center;
 }
 
+.header__logo-text {
+  width: 100%;  
+  text-align: center;  
+}
+
 .header__logo img {
   width: calc(70 / 16 * 1rem);
   height: calc(70 / 16 * 1rem);
@@ -57,63 +86,64 @@ ul li {
   border-radius: 50%;
 }
 
+.header__nav {
+    min-height: calc(70 / 16 * 1rem);
+    width: 100%;
+    padding: calc(20 / 16 * 1rem);
+    justify-content: space-between;
+    align-items: center;
+}
+
 .header__menu {
-  display: none;
-  width: 100%;
-  justify-content: center;
-  margin-block-start: calc(15 / 16 * 1rem);
-  justify-content: space-between;
-  align-items: center;
+    display: none;
+    justify-content: space-between;
+    position: fixed;
+    left: -100;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-content: space-around;
+    background-color: #B5E6DA;
 }
 
-.header__menu-items {
-  border: 1px solid var(--secondary-color);
-  width: calc(120 / 16 * 1rem);
+.header__menu.active {
+    display: block;
+    left: 0;
 }
 
-.header__menu-items,
-.header__menu-items--hover,
-.header__menu-items--hover:hover::before {
-  border-radius: 30%;
+.header__menu-item {
+    width: 100%;
+    text-align: center;
+    padding: calc(20 / 16 * 1rem);
 }
 
-.header__menu-items--hover {
-  height: calc(70 / 16 * 1rem);
-  position: relative;
-  color: #16141499;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
+.header__menu-toggle {
+    width: calc(30 / 16 * 1rem);
+    height: calc(20 / 16 * 1rem);
+    cursor: pointer;
+    transition: all 1s ease-in-out;
 }
 
-.header__menu-items--hover:hover {
-  color: azure;
+.bar {
+    display: block;
+    width: calc(30 / 16 * 1rem);
+    height: calc( 5 / 16 * 1rem);
+    background-color: #262626;
+    margin-block-end: calc(2 / 16 * 1rem);
+    transition: all 0.3s ease-in-out;
 }
 
-.header__menu-items--hover:hover::before {
-  content: "";
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  right: 100%;
-  position: absolute;
-  background-color: var(--primary-color);
-  z-index: -1;
+.header__menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(calc(7 / 16 * 1rem)) rotate(45deg);
 }
 
-.header__nav-toggle {
-  width: 0%;
-  height: calc(30 / 16 * 1rem);
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+.header__menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
 }
 
-.header__nav-bar {
-    width: calc(25/ 16 * 1rem);
-    height: calc(2/ 16 * 1rem);
-    background-color: #0f0f0f99;
+.header__menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(calc(-7 / 16 * 1rem)) rotate(-45deg);
 }
 
 .main-container {
@@ -121,7 +151,7 @@ ul li {
 }
 
 .main-content, .about-content, 
-.services-content, .contact-content {
+.services-content, .testimonial-content, .contact-content  {
     width: 100%;
     text-align: center;
     padding-inline: calc(20 / 16 * 1rem);
@@ -346,7 +376,7 @@ ul li {
 }
 
 .services-content__service-title-heading, .services-content__core-value-title-heading, 
-.services-content__testimonial-title-heading {
+.testimonial-content__testimonial-title-heading {
     border: 1px solid var(--primary-color);
     width: fit-content;
     margin-inline: auto;
@@ -359,21 +389,21 @@ ul li {
 
 .services-content__service-heading,
 .services-content__core-value-heading,
-.services-content__testimonial-heading {
+.testimonial-content__testimonial-heading {
     font-size: calc(25/ 16 * 1rem);
     margin-block-end: calc(50/ 16 * 1rem);
 }
 
 .services-content__service-card-container,
 .services-content__core-value-card-container,
-.services-content__testimonial-card-container
+.testimonial-content__testimonial-card-container
 {
     width: 100%;
 }
 
 .services-content__service-card-item, 
 .services-content__core-value-card-item,
-.services-content__testimonial-card-item {
+.testimonial-content__testimonial-card-item {
     width: 100%;
     grid-template-columns: repeat(2, 40%);
     grid-template-rows: repeat(3, 50%);
@@ -396,26 +426,26 @@ ul li {
     grid-row: 1/2;
 }
 
-.services-content__testimonial-card-item {
+.testimonial-content__testimonial-card-item {
     width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 30% 10% 60%;
 }
 
-.services-content__testimonial-card-img {
+.testimonial-content__testimonial-card-img {
     width: calc(80/ 16 * 1rem);
     border-radius: 40%;
     grid-column: 1/2;
     grid-row: 1/2;
 }
 
-.service-content__testimonial-card-name {
+.testimonial-content__testimonial-card-name {
     font-size: calc(20/ 16 * 1rem);
     grid-column: 1/2;
     grid-row: 2/2;
 }
 
-.services-content__testimonial-card-comment {
+.testimonial-content__testimonial-card-comment {
     margin-block-end: calc(20/ 16 * 1rem);
     background-image: url(./images/freepik-export-20240828024316eS3a.png);
     background-size: cover;
@@ -453,5 +483,12 @@ ul li {
 
 
 
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    .header__menu {
+        display: flex;
+    }
+    .header__hamburger  {
+        display: none;
+    }
 
-
+}

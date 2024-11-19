@@ -6,36 +6,48 @@
     <title>Rebbeca Lee Jin</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./images/icons/icons8-right-50.png" type="image/x-icon">
+    
 </head>
 <body>
-    <header class="header flex">
-        <div class="header__logo flex">
-            <img src="./images/LJ.png" alt="">
-            <span class="header__logo-text">Jessica lee jin</span>
-        </div>
-        <ul class="header__menu flex">
-            <li class="header__menu-items">
-                <a href="#home" class="header__menu-items--hover flex">home</a>
-            </li>
-            <li class="header__menu-items">
-                <a href="#about" class="header__menu-items--hover flex">about us</a>
-            </li>
-            <li class="header__menu-items">
-                <a href="#services" class="header__menu-items--hover flex">services</a>
-            </li>
-            <li class="header__menu-items">
-                <a href="#contact" class="header__menu-items--hover flex">contact</a>
-            </li>
-        </ul>
-        <div class="header__nav-toggle flex">
-            <div class="header__nav-bar"></div>
-            <div class="header__nav-bar"></div>
-            <div class="header__nav-bar"></div>
-        </div>
+    <div class="top__bar">
+        <a class="top__bar-link flex" href="#top">
+            <img src="./images/icons/icons8-arrow-up-16.png" alt="">
+        </a>
+    </div>
+    <header>
+        <nav class="header__nav flex">
+            <div class="header__logo flex">
+                <img src="./images/LJ.png" alt="">
+                <div class="header__logo-text">Jessica lee jin
+                </div>
+            </div>
+            <ul class="header__menu flex">
+                <li class="header__menu-item">
+                    <a href="#home">Home</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#about">About</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#services">Services</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#testimonial">Testimonial</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+            <div class="header__menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
     </header>
 
-    <main class="main-container">
-        <section class="main-content" id="#home">
+    <main id="home" class="main-container">
+        <section class="main-content">
             <div class="main-content__intro">Hi, I' am</div>
             <h1 class="main-content__name">Jessica Lee Jin</h1>
             <p class="main-content__title-profession">
@@ -164,24 +176,26 @@
                     <span class="services-content__core-value-card-text">Team Work</span>
                 </div>
             </div>
-            <div class="section-divider"></div>
-            <h2 class="services-content__testimonial-title-heading">Testimonial</h2>
-            <h3 class="services-content__testimonial-heading">Clients Feedback</h3>
-            <div class="services-content__testimonial-card-container">
-                <div class="services-content__testimonial-card-item grid">
-                    <img src="./images/James Peterson.jpg" alt="" class="services-content__testimonial-card-img">
-                    <div class="service-content__testimonial-card-name">James Peterson</div>
-                    <p class="services-content__testimonial-card-comment">"Jessica has really helped me to understand and trade the forex market. Her experience and guidance to work on profitable output has been making me consistent profit, helping my investment portfolio diversify with courage. She's truly exceptional!"</p>
+        </section>
+        <div class="section-divider"></div>
+        <section class="testimonial-content" id="testimonial">
+            <h2  class="testimonial-content__testimonial-title-heading">Testimonial</h2>
+            <h3 class="testimonial-content__testimonial-heading">Clients Feedback</h3>
+            <div class="testimonial-content__testimonial-card-container">
+                <div class="testimonial-content__testimonial-card-item grid">
+                    <img src="./images/James Peterson.jpg" alt="" class="testimonial-content__testimonial-card-img">
+                    <div class="testimonial-content__testimonial-card-name">James Peterson</div>
+                    <p class="testimonial-content__testimonial-card-comment">"Jessica has really helped me to understand and trade the forex market. Her experience and guidance to work on profitable output has been making me consistent profit, helping my investment portfolio diversify with courage. She's truly exceptional!"</p>
                 </div>
-                <div class="services-content__testimonial-card-item grid">
-                    <img src="./images/Sarah Beckham.jpg" alt="" class="services-content__testimonial-card-img">
-                    <div class="service-content__testimonial-card-name">Sarah Beckham</div>
-                    <p class="services-content__testimonial-card-comment">"Jessica completely revolutionized the game for me when it came to my stock market investments. Her personalized advice and market intelligence have augured well for my investment portfolio. Thankful for her expertise and support!"</p>
+                <div class="testimonial-content__testimonial-card-item grid">
+                    <img src="./images/Sarah Beckham.jpg" alt="" class="testimonial-content__testimonial-card-img">
+                    <div class="testimonial-content__testimonial-card-name">Sarah Beckham</div>
+                    <p class="testimonial-content__testimonial-card-comment">"Jessica completely revolutionized the game for me when it came to my stock market investments. Her personalized advice and market intelligence have augured well for my investment portfolio. Thankful for her expertise and support!"</p>
                 </div>
-                <div class="services-content__testimonial-card-item grid">
-                    <img src="./images/Matt Jacobs.jpg" alt="" class="services-content__testimonial-card-img">
-                    <div class="service-content__testimonial-card-name">Matt Jacobs</div>
-                    <p class="services-content__testimonial-card-comment">"Jessica Inspired Me to Be Secure, Investing THE BEST WAY in the Crypto Market. And her tactics have paid off in impressive gains. She’s a fantastic advisor!"</p>
+                <div class="testimonial-content__testimonial-card-item grid">
+                    <img src="./images/Matt Jacobs.jpg" alt="" class="testimonial-content__testimonial-card-img">
+                    <div class="testimonial-content__testimonial-card-name">Matt Jacobs</div>
+                    <p class="testimonial-content__testimonial-card-comment">"Jessica Inspired Me to Be Secure, Investing THE BEST WAY in the Crypto Market. And her tactics have paid off in impressive gains. She’s a fantastic advisor!"</p>
                 </div>
             </div>
         </section>
@@ -215,6 +229,6 @@
         
         <div>copyright</div>
     </footer>
-    
+    <script src="script.js"></script>
 </body>
 </html>
