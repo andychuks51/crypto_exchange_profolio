@@ -204,17 +204,18 @@
             <div class="contact-content__contact-title">Contact</div>
             <h2 class="contact-content__contact-heading">Get in touch</h2>
             <p class="contact-content__contact-paragraph">Send a messege, you will get a reply within 24 hours.</p>
-            <form action="" class="contact-content__form-container">
-                <input type="text" name="" id="">
-                <label for=""></label>
-                <input type="text" name="" id="">
-                <label for=""></label>
-                <input type="text" name="" id="">
-                <label for=""></label>
-                <input type="text" name="" id="">
-                <label for=""></label>
-                <textarea name="" id=""></textarea>
-                <label for=""></label>
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-content__form-container">
+
+                <input type="hidden" name="access_key" value="c84b4ba4-a9bf-430f-a9df-73b4ed8a25e6">
+
+                <label for="name">Name:</label>
+                <input type="text" name="" id="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                <br>
+                <label for="message">Message:</label>
+                <textarea name="messege" id="messege" rows="10"required></textarea>
             </form>
             <a href="#" class="contact-content__btn"></a>
             <div class="contact-content__email-container">
