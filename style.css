@@ -672,7 +672,7 @@ header {
 
 @media screen and (min-width: 768px) and (max-width: 1440px) {
   @media screen and (min-width: 768px) {
-    /* --- General Layout & Spacing --- */
+    /* General Layout & Spacing */
     body {
       font-size: 1rem;
     }
@@ -701,7 +701,7 @@ header {
       margin-block: calc(70 / 16 * 1rem);
     }
 
-    /* --- Header & Navigation --- */
+    /* Header & Navigation */
 
     .header__nav {
       max-width: 1140px;
@@ -822,7 +822,7 @@ header {
       text-align: left;
     }
 
-    /* --- About Content Section --- */
+    /* About Content Section */
     .about-content {
       /* Consider a two-column layout for text and image */
       display: grid;
