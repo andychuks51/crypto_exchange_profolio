@@ -14,39 +14,42 @@
             <img src="./images/icons/icons8-arrow-up-16.png" alt="">
         </a>
     </div>
-    <header>
-        <nav class="header__nav flex">
-            <div class="header__logo flex">
-                <img src="./images/LJ.png" alt="">
-                <div class="header__logo-text">Rebecca lee jin
-                </div>
+    <header style="background-image: url('https://images.unsplash.com/photo-1627023347798-f93b640c7520?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center; color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);">
+        <nav class="header__nav flex" aria-label="Main Navigation">
+            <div class="header__logo flex" role="banner">
+                <img src="./images/LJ.png" alt="Rebecca Lee Jin Logo">
+                <div class="header__logo-text">Rebecca Lee Jin</div>
             </div>
-            <ul class="header__menu flex">
-                <li class="header__menu-item">
+            <ul class="header__menu flex" role="menu">
+                <li class="header__menu-item" role="menuitem">
                     <a href="#home">Home</a>
                 </li>
-                <li class="header__menu-item">
+                <li class="header__menu-item" role="menuitem">
                     <a href="#about">About</a>
                 </li>
-                <li class="header__menu-item">
+                <li class="header__menu-item" role="menuitem">
                     <a href="#services">Services</a>
                 </li>
-                <li class="header__menu-item">
+                <li class="header__menu-item" role="menuitem">
                     <a href="#testimonial">Testimonial</a>
                 </li>
-                <li class="header__menu-item">
+                <li class="header__menu-item" role="menuitem">
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
-            <div class="header__menu-toggle">
+            <button class="header__menu-toggle" aria-label="Toggle Navigation Menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </nav>
+        <div class="hero-content" role="region" aria-labelledby="hero-title">
+            <h1 id="hero-title">Welcome to Rebecca Lee Jin's Portfolio</h1>
+            <a href="#about" class="hero-btn" style="margin-top: 20px; display: inline-block;">Learn More</a>
+        </div>
     </header>
 
-    <main id="home" class="main-container">
+    <main id="home" class="main-container" style="max-width: 1200px; margin: 0 auto;">
         <section class="main-content">
             <div class="main-content__intro">Hi, I' am</div>
             <h1 class="main-content__name">Rebecca Lee Jin</h1>
@@ -178,25 +181,29 @@
             </div>
         </section>
         <div class="section-divider"></div>
-        <section class="testimonial-content" id="testimonial">
-            <h2  class="testimonial-content__testimonial-title-heading">Testimonial</h2>
+        <section class="testimonial-content" id="testimonial" aria-labelledby="testimonial-title">
+            <h2 id="testimonial-title" class="testimonial-content__testimonial-title-heading">Testimonial</h2>
             <h3 class="testimonial-content__testimonial-heading">Clients Feedback</h3>
-            <div class="testimonial-content__testimonial-card-container">
-                <div class="testimonial-content__testimonial-card-item grid">
-                    <img src="./images/James Peterson.jpg" alt="" class="testimonial-content__testimonial-card-img">
+            <div class="testimonial-carousel" role="region" aria-live="polite">
+                <div class="testimonial-slide" role="group" aria-label="Testimonial 1 of 3">
+                    <img src="./images/James Peterson.jpg" alt="James Peterson" class="testimonial-content__testimonial-card-img">
                     <div class="testimonial-content__testimonial-card-name">James Peterson</div>
                     <p class="testimonial-content__testimonial-card-comment">"Jessica has really helped me to understand and trade the forex market. Her experience and guidance to work on profitable output has been making me consistent profit, helping my investment portfolio diversify with courage. She's truly exceptional!"</p>
                 </div>
-                <div class="testimonial-content__testimonial-card-item grid">
-                    <img src="./images/Sarah Beckham.jpg" alt="" class="testimonial-content__testimonial-card-img">
+                <div class="testimonial-slide" role="group" aria-label="Testimonial 2 of 3">
+                    <img src="./images/Sarah Beckham.jpg" alt="Sarah Beckham" class="testimonial-content__testimonial-card-img">
                     <div class="testimonial-content__testimonial-card-name">Sarah Beckham</div>
                     <p class="testimonial-content__testimonial-card-comment">"Jessica completely revolutionized the game for me when it came to my stock market investments. Her personalized advice and market intelligence have augured well for my investment portfolio. Thankful for her expertise and support!"</p>
                 </div>
-                <div class="testimonial-content__testimonial-card-item grid">
-                    <img src="./images/Matt Jacobs.jpg" alt="" class="testimonial-content__testimonial-card-img">
+                <div class="testimonial-slide" role="group" aria-label="Testimonial 3 of 3">
+                    <img src="./images/Matt Jacobs.jpg" alt="Matt Jacobs" class="testimonial-content__testimonial-card-img">
                     <div class="testimonial-content__testimonial-card-name">Matt Jacobs</div>
                     <p class="testimonial-content__testimonial-card-comment">"Jessica Inspired Me to Be Secure, Investing THE BEST WAY in the Crypto Market. And her tactics have paid off in impressive gains. She’s a fantastic advisor!"</p>
                 </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="prev-slide" aria-label="Previous Testimonial">&#10094;</button>
+                <button class="next-slide" aria-label="Next Testimonial">&#10095;</button>
             </div>
         </section>
         <div class="section-divider"></div>
