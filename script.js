@@ -18,13 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
+      // Check if the target element exists before scrolling
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
     });
   });
 
   // Add fade-in animation on scroll
+  // Assuming elements to fade have the class 'fade-in'
   const fadeElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver(
     (entries, observer) => {
@@ -48,8 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.style.display = i === index ? "block" : "none";
+      slide.style.display = i === index ? "flex" : "none"; // Use flex for layout
+      slide.setAttribute("aria-hidden", i !== index); // Add aria-hidden for accessibility
     });
+    // Update aria-label for current slide
+    if (slides[index]) {
+      slides[index].setAttribute(
+        "aria-label",
+        `Testimonial ${index + 1} of ${slides.length}`
+      );
+    }
   }
 
   function nextSlide() {
@@ -62,11 +76,17 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
-  prevButton.addEventListener("click", prevSlide);
-  nextButton.addEventListener("click", nextSlide);
+  // Initialize the first slide if slides exist
+  if (slides.length > 0) {
+    showSlide(currentSlide);
+  }
 
-  // Initialize the first slide
-  showSlide(currentSlide);
+  if (prevButton) {
+    prevButton.addEventListener("click", prevSlide);
+  }
+  if (nextButton) {
+    nextButton.addEventListener("click", nextSlide);
+  }
 
   // Ensure the top__bar element scrolls the page back to the top
   const topBar = document.querySelector(".top__bar-link");
@@ -76,4 +96,53 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+});
+
+const form = document.getElementById("form");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+  result.innerHTML = "Please wait...";
+
+  const hCaptcha = form.querySelector(
+    "textarea[name=h-captcha-response]"
+  ).value;
+
+  if (!hCaptcha) {
+    e.preventDefault();
+    alert("Please fill out captcha field");
+    return;
+  }
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: json,
+  })
+    .then(async (response) => {
+      let json = await response.json();
+      if (response.status == 200) {
+        result.innerHTML = "Form submitted successfully";
+      } else {
+        console.log(response);
+        result.innerHTML = json.message;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      result.innerHTML = "Something went wrong!";
+    })
+    .then(function () {
+      form.reset();
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 3000);
+    });
 });
