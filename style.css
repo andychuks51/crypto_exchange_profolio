@@ -60,7 +60,9 @@ textarea {
 
 .top__bar {
   position: fixed;
-  bottom: 50%;
+  top: 50%; /* Position the top edge at 50% from the top */
+  right: 20px; /* Position the right edge 20px from the right */
+  transform: translateY(-50%); /* Vertically center the element */
   width: calc(30 / 16 * 1rem);
   height: calc(30 / 16 * 1rem);
   background-color: #000;
