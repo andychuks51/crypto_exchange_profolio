@@ -406,6 +406,18 @@ window.smartsupp||(function(d) {
               value="a1ad67bb-84ed-4b0d-8ab1-777e45f568b8"
             />
 
+            <!-- Honeypot field for spam protection (invisible to users) -->
+            <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+              <label for="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
             <label for="full-name">Full Name</label>
             <input type="text" id="full-name" name="full-name" required />
             <label for="email">Email Address</label>
