@@ -1787,3 +1787,20 @@ body {
   color: var(--text-color);
   background-color: var(--background-light);
 }
+
+.form-error {
+  color: #fff;
+  background: #d32f2f;
+  padding: 1em;
+  border-radius: 5px;
+  margin-top: 1em;
+  text-align: center;
+}
+.form-success {
+  color: #fff;
+  background: #388e3c;
+  padding: 1em;
+  border-radius: 5px;
+  margin-top: 1em;
+  text-align: center;
+}

@@ -162,6 +162,45 @@ document.addEventListener("DOMContentLoaded", () => {
       addSystemListener();
     });
   }
+
+  const form = document.getElementById("form");
+  const resultDiv = document.getElementById("result");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            resultDiv.innerHTML =
+              "<div class='form-success'>Thank you! Your message has been sent.</div>";
+          } else {
+            // Check for hCaptcha error
+            if (
+              data.message &&
+              data.message.toLowerCase().includes("hcaptcha")
+            ) {
+              resultDiv.innerHTML =
+                "<div class='form-error'>Please complete the captcha to submit the form. If you use an ad blocker, please disable it for this page.</div>";
+            } else {
+              resultDiv.innerHTML =
+                "<div class='form-error'>There was an error submitting the form. Please try again.</div>";
+            }
+          }
+        })
+        .catch(() => {
+          resultDiv.innerHTML =
+            "<div class='form-error'>There was a network error. Please try again later.</div>";
+        });
+    });
+  }
 });
 
 // Existing script.js code (like the testimonial carousel or mobile menu toggle)
