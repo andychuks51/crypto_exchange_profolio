@@ -96,53 +96,72 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-});
 
-const form = document.getElementById("form");
-const result = document.getElementById("result");
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const resetSystemMode = document.getElementById("resetSystemMode");
+  const body = document.body;
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const formData = new FormData(form);
-  const object = Object.fromEntries(formData);
-  const json = JSON.stringify(object);
-  result.innerHTML = "Please wait...";
-
-  const hCaptcha = form.querySelector(
-    "textarea[name=h-captcha-response]"
-  ).value;
-
-  if (!hCaptcha) {
-    e.preventDefault();
-    alert("Please fill out captcha field");
-    return;
+  // Helper to apply theme
+  function applyTheme(theme) {
+    if (theme === "dark-mode") {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
   }
 
-  fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: json,
-  })
-    .then(async (response) => {
-      let json = await response.json();
-      if (response.status == 200) {
-        result.innerHTML = "Form submitted successfully";
-      } else {
-        console.log(response);
-        result.innerHTML = json.message;
+  // System preference listener (only active if no manual preference)
+  let systemListener = null;
+  function addSystemListener() {
+    if (systemListener) return;
+    systemListener = (e) => {
+      if (!localStorage.getItem("theme")) {
+        applyTheme(e.matches ? "dark-mode" : "light-mode");
       }
-    })
-    .catch((error) => {
-      console.log(error);
-      result.innerHTML = "Something went wrong!";
-    })
-    .then(function () {
-      form.reset();
-      setTimeout(() => {
-        result.style.display = "none";
-      }, 3000);
+    };
+    prefersDarkMode.addEventListener("change", systemListener);
+  }
+  function removeSystemListener() {
+    if (systemListener) {
+      prefersDarkMode.removeEventListener("change", systemListener);
+      systemListener = null;
+    }
+  }
+
+  // On load: check for saved preference
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark-mode" || savedTheme === "light-mode") {
+    applyTheme(savedTheme);
+    removeSystemListener();
+  } else {
+    applyTheme(prefersDarkMode.matches ? "dark-mode" : "light-mode");
+    addSystemListener();
+  }
+
+  // Toggle dark mode on button click
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+      const isDark = !body.classList.contains("dark-mode"); // what we're toggling to
+      applyTheme(isDark ? "dark-mode" : "light-mode");
+      localStorage.setItem("theme", isDark ? "dark-mode" : "light-mode");
+      removeSystemListener(); // User's choice takes precedence
+      if (isDark) {
+        console.log("Switched to dark mode");
+      } else {
+        console.log("Switched to light mode");
+      }
     });
+  }
+
+  // Reset to system preference on button click
+  if (resetSystemMode) {
+    resetSystemMode.addEventListener("click", () => {
+      localStorage.removeItem("theme");
+      applyTheme(prefersDarkMode.matches ? "dark-mode" : "light-mode");
+      addSystemListener();
+    });
+  }
 });
+
+// Existing script.js code (like the testimonial carousel or mobile menu toggle)

@@ -1,3 +1,26 @@
+/* Dark Mode Toggle Button Container */
+.dark-mode-toggle-container {
+  position: fixed;
+  top: 10px; /* Adjust as needed for spacing from the top */
+  right: 10px; /* Adjust as needed for spacing from the right */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+#darkModeToggle {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
 /* Existing styles */
 :root {
   --primary-color: #b5e6da;
@@ -15,6 +38,57 @@
   --footer-bg-color: #262626; /* Updated for new footer */
   --footer-text-color: #e0e0e0; /* Updated for new footer */
   --footer-legal-color: #a0a0a0; /* Updated for new footer */
+
+  /* Dark Mode Variables */
+  --dark-text-color: #e0e0e0;
+  --dark-background-light: #1e1e1e;
+  --dark-nav-bg-color: #2d2d2d;
+  --dark-nav-link-color: #e0e0e0;
+  --dark-nav-link-hover-color: #66b2ff;
+  --dark-button-bg-color: #66b2ff;
+  --dark-button-text-color: #1e1e1e;
+  --dark-button-hover-bg-color: #4da6ff;
+  --dark-card-bg-color: #2d2d2d;
+  --dark-card-border-color: #444;
+  --dark-footer-bg-color: #1a1a1a;
+  --dark-footer-text-color: #a0a0a0;
+  --dark-footer-legal-color: #777;
+}
+
+/* Apply dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: var(--dark-text-color);
+    --background-light: var(--dark-background-light);
+    --nav-bg-color: var(--dark-nav-bg-color);
+    --nav-link-color: var(--dark-nav-link-color);
+    --nav-link-hover-color: var(--dark-nav-link-hover-color);
+    --button-bg-color: var(--dark-button-bg-color);
+    --button-text-color: var(--dark-button-text-color);
+    --button-hover-bg-color: var(--dark-button-hover-bg-color);
+    --card-bg-color: var(--dark-card-bg-color);
+    --card-border-color: var(--dark-card-border-color);
+    --footer-bg-color: var(--dark-footer-bg-color);
+    --footer-text-color: var(--dark-footer-text-color);
+    --footer-legal-color: var(--dark-footer-legal-color);
+  }
+}
+
+/* Apply dark mode when .dark-mode class is present (manual toggle) */
+body.dark-mode {
+  --text-color: var(--dark-text-color);
+  --background-light: var(--dark-background-light);
+  --nav-bg-color: var(--dark-nav-bg-color);
+  --nav-link-color: var(--dark-nav-link-color);
+  --nav-link-hover-color: var(--dark-nav-link-hover-color);
+  --button-bg-color: var(--dark-button-bg-color);
+  --button-text-color: var(--dark-button-text-color);
+  --button-hover-bg-color: var(--dark-button-hover-bg-color);
+  --card-bg-color: var(--dark-card-bg-color);
+  --card-border-color: var(--dark-card-border-color);
+  --footer-bg-color: var(--dark-footer-bg-color);
+  --footer-text-color: var(--dark-footer-text-color);
+  --footer-legal-color: var(--dark-footer-legal-color);
 }
 
 * {
@@ -220,7 +294,7 @@ header:hover {
 }
 
 .header__get-started-btn {
-  background-color: var(--button-bg-color); /* Added button style */
+  background-color: var(--button-bg-color); /*
   color: var(--button-text-color); /* Added button style */
   padding: 10px 20px; /* Added padding */
   border-radius: 5px; /* Added border-radius */
