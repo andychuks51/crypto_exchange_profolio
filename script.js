@@ -104,10 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Helper to apply theme
   function applyTheme(theme) {
+    body.classList.remove("dark-mode", "light-mode");
     if (theme === "dark-mode") {
       body.classList.add("dark-mode");
-    } else {
-      body.classList.remove("dark-mode");
+    } else if (theme === "light-mode") {
+      body.classList.add("light-mode");
     }
   }
 
@@ -163,44 +164,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Remove custom AJAX contact form logic and restore hCaptcha integration (handled by backend or Web3Forms)
+  // No custom JS for contact form needed if using hCaptcha and Web3Forms
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form");
   const resultDiv = document.getElementById("result");
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+  if (!form) return;
 
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Show loading animation
+    resultDiv.innerHTML = `
+      <div class="form-message">
+        <span class="loader"></span>
+        Sending...
+      </div>
+    `;
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          resultDiv.innerHTML = `<div class="form-message form-success">Thank you! Your message has been sent successfully.</div>`;
+          form.reset();
+        } else {
+          // Always show a generic error message, hiding the original error
+          resultDiv.innerHTML = `<div class="form-message form-error">Oops! An error was encountered. Please try again later.</div>`;
+        }
       })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            resultDiv.innerHTML =
-              "<div class='form-success'>Thank you! Your message has been sent.</div>";
-          } else {
-            // Check for hCaptcha error
-            if (
-              data.message &&
-              data.message.toLowerCase().includes("hcaptcha")
-            ) {
-              resultDiv.innerHTML =
-                "<div class='form-error'>Please complete the captcha to submit the form. If you use an ad blocker, please disable it for this page.</div>";
-            } else {
-              resultDiv.innerHTML =
-                "<div class='form-error'>There was an error submitting the form. Please try again.</div>";
-            }
-          }
-        })
-        .catch(() => {
-          resultDiv.innerHTML =
-            "<div class='form-error'>There was a network error. Please try again later.</div>";
-        });
-    });
-  }
+      .catch(() => {
+        resultDiv.innerHTML = `<div class="form-message form-error">Oops! An error was encountered. Please try again later.</div>`;
+      });
+  });
 });
-
-// Existing script.js code (like the testimonial carousel or mobile menu toggle)
