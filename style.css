@@ -1,7 +1,7 @@
 /* Dark Mode Toggle Button Container */
 .dark-mode-toggle-container {
   position: fixed;
-  top: 10px; /* Adjust as needed for spacing from the top */
+  top: 8rem; /* Move down by 8rem */
   right: 10px; /* Adjust as needed for spacing from the right */
   z-index: 1000; /* Ensure it's above other content */
 }
