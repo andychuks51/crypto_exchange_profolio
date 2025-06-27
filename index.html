@@ -47,6 +47,10 @@
         <img src="./images/icons/icons8-arrow-up-16.png" alt="" />
       </a>
     </div>
+    <!-- Skip to content for accessibility -->
+    <a href="#home" class="skip-to-content" tabindex="0"
+      >Skip to main content</a
+    >
     <header
       style="
         background-image: url('./images/header_bg.png');
@@ -56,12 +60,17 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
       "
     >
-      <nav class="header__nav flex" aria-label="Main Navigation">
+      <nav
+        class="header__nav flex"
+        aria-label="Main Navigation"
+        role="navigation"
+        id="mainNav"
+      >
         <div class="header__logo flex" role="banner">
           <img src="./images/LJ.png" alt="Rebecca Lee Jin Logo" />
           <div class="header__logo-text">Rebecca Lee Jin</div>
         </div>
-        <ul class="header__menu flex" role="menu">
+        <ul class="header__menu flex" role="menu" id="mainMenu">
           <li class="header__menu-item" role="menuitem">
             <a href="#home">Home</a>
           </li>
@@ -78,7 +87,13 @@
             <a href="#contact">Contact</a>
           </li>
         </ul>
-        <button class="header__menu-toggle" aria-label="Toggle Navigation Menu">
+        <button
+          class="header__menu-toggle"
+          aria-label="Toggle Navigation Menu"
+          aria-controls="mainMenu"
+          aria-expanded="false"
+          id="menuToggle"
+        >
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>

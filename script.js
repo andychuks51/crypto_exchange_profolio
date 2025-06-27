@@ -1,18 +1,90 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.querySelector(".header__menu-toggle");
-  const navMenu = document.querySelector(".header__menu");
+  const hamburger = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("mainMenu");
+  const body = document.body;
+  const focusableSelectors =
+    'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
+  let lastFocusedElement = null;
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-  });
+  // Accessibility: Skip to content
+  const skipLink = document.querySelector(".skip-to-content");
+  if (skipLink) {
+    skipLink.addEventListener("click", function (e) {
+      const main = document.getElementById("home");
+      if (main) {
+        main.setAttribute("tabindex", "-1");
+        main.focus();
+      }
+    });
+  }
 
-  document.querySelectorAll(".header__menu-item").forEach((n) =>
-    n.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navMenu.classList.remove("active");
-    })
-  );
+  // Hamburger menu toggle
+  function openMenu() {
+    hamburger.classList.add("active");
+    navMenu.classList.add("active");
+    body.classList.add("nav-open");
+    hamburger.setAttribute("aria-expanded", "true");
+    lastFocusedElement = document.activeElement;
+    trapFocus(navMenu);
+  }
+  function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+    body.classList.remove("nav-open");
+    hamburger.setAttribute("aria-expanded", "false");
+    releaseFocusTrap();
+    if (lastFocusedElement) lastFocusedElement.focus();
+  }
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      if (navMenu.classList.contains("active")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+    // Close menu on ESC
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navMenu.classList.contains("active")) {
+        closeMenu();
+      }
+    });
+    // Close menu when clicking a menu item
+    navMenu
+      .querySelectorAll(".header__menu-item a")
+      .forEach((n) => n.addEventListener("click", closeMenu));
+  }
+
+  // Focus trap for accessibility
+  let focusTrapListener = null;
+  function trapFocus(container) {
+    const focusableEls = container.querySelectorAll(focusableSelectors);
+    if (!focusableEls.length) return;
+    const firstEl = focusableEls[0];
+    const lastEl = focusableEls[focusableEls.length - 1];
+    focusTrapListener = function (e) {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", focusTrapListener);
+    firstEl.focus();
+  }
+  function releaseFocusTrap() {
+    if (focusTrapListener) {
+      document.removeEventListener("keydown", focusTrapListener);
+      focusTrapListener = null;
+    }
+  }
 
   // Add smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -99,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const darkModeToggle = document.getElementById("darkModeToggle");
   const resetSystemMode = document.getElementById("resetSystemMode");
-  const body = document.body;
   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
   // Helper to apply theme

@@ -1043,96 +1043,79 @@ section {
   body {
     font-size: 1rem;
   }
-
-  /* Constrain content width and center it */
   .main-container {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 40px; /* Adjusted horizontal padding */
+    padding: 0 40px;
   }
-
-  /* Adjust section padding */
   .main-content,
   .about-content,
   .services-content,
   .testimonial-content,
   .contact-content {
-    padding: 60px 0; /* Adjusted padding */
+    padding: 60px 0;
   }
-
   .section-divider {
-    margin-block: 60px; /* Adjusted vertical spacing */
+    margin-block: 60px;
   }
-
-  /* Header & Navigation */
-
   .header__nav {
-    max-width: 1200px; /* Adjusted max-width */
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding: calc(15 / 16 * 1rem) 40px; /* Adjusted padding */
+    padding: calc(15 / 16 * 1rem) 40px;
     min-height: auto;
   }
-
   .header__menu-toggle {
-    display: none; /* Hide toggle on larger screens */
+    display: none;
   }
-
   .header__logo {
     margin-inline: 0;
     width: auto;
     gap: 15px;
-    font-size: calc(20 / 16 * 1rem); /* Adjusted font size */
+    font-size: calc(20 / 16 * 1rem);
   }
   .header__logo img {
     width: calc(50 / 16 * 1rem);
     height: calc(50 / 16 * 1rem);
   }
-
   .header__menu {
-    display: flex; /* Show menu on larger screens */
+    display: flex;
     position: static;
     flex-direction: row;
     width: auto;
     height: auto;
     background-color: transparent;
     gap: calc(30 / 16 * 1rem);
-    padding: 0; /* Reset padding */
-    transition: none; /* Remove transition */
-    align-items: center; /* Vertically align menu items */
+    padding: 0;
+    transition: none;
+    align-items: center;
   }
-
   .header__menu-item {
-    padding: 0; /* Reset padding */
+    padding: 0;
     width: auto;
   }
-
   .header__menu-item a {
-    color: var(--nav-link-color); /* Updated */
+    color: var(--nav-link-color);
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 500;
     display: inline-block;
     position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Adjusted transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
     overflow: hidden;
   }
-
   .header__menu-item a:hover {
-    text-decoration: none; /* Remove underline on hover */
+    text-decoration: none;
     background-color: rgba(0, 0, 0, 0.06);
-    color: var(--nav-link-hover-color); /* Updated */
+    color: var(--nav-link-hover-color);
   }
-
   .header__get-started-btn {
-    display: block; /* Show button on larger screens */
+    display: block;
     width: auto;
-    margin-left: 20px; /* Added margin */
+    margin-left: 20px;
   }
-
-  /* Main Content Section (Hero) */
   .main-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1142,28 +1125,27 @@ section {
       "title image"
       "stats image"
       "button image";
-    gap: 20px 80px; /* Adjusted gap */
+    gap: 20px 80px;
     align-items: center;
     text-align: left;
-    padding-top: 80px; /* Adjusted padding */
-    padding-bottom: 80px; /* Adjusted padding */
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
-
   .main-content__intro {
     grid-area: intro;
     margin-bottom: 5px;
   }
   .main-content__name {
     grid-area: name;
-    font-size: calc(60 / 16 * 1rem); /* Adjusted font size */
+    font-size: calc(60 / 16 * 1rem);
     margin-block-end: 10px;
   }
   .main-content__title-profession {
     grid-area: title;
-    margin-block-end: 30px; /* Adjusted margin */
+    margin-block-end: 30px;
   }
   .main-content__highlighted {
-    font-size: calc(24 / 16 * 1rem); /* Adjusted font size */
+    font-size: calc(24 / 16 * 1rem);
   }
   .main-content__stats {
     grid-area: stats;
@@ -1177,7 +1159,7 @@ section {
   }
   .main-content__image-container {
     grid-area: image;
-    max-width: 500px; /* Adjusted max-width */
+    max-width: 500px;
     justify-self: center;
     margin-block-end: 0;
   }
@@ -1191,8 +1173,6 @@ section {
     width: auto;
     text-align: left;
   }
-
-  /* About Content Section */
   .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1205,20 +1185,19 @@ section {
       "image button"
       "divider divider"
       "exp_image exp_details"
-      "exam_details exam_details"; /* Adjusted grid areas */
-    gap: 30px 80px; /* Adjusted gap */
+      "exam_details exam_details";
+    gap: 30px 80px;
     text-align: left;
     align-items: start;
   }
-
   .about-content__title {
     grid-area: title;
     margin-inline: 0;
     justify-self: start;
-    text-align: left; /* Adjusted text alignment */
+    text-align: left;
   }
   .about-content__title-heading {
-    text-align: left; /* Adjusted text alignment */
+    text-align: left;
   }
   .about-content__label-item {
     grid-area: labels;
@@ -1232,17 +1211,17 @@ section {
     max-width: 400px;
     margin-block-end: 0;
     justify-self: center;
-    align-self: start; /* Adjusted alignment */
+    align-self: start;
   }
   .about-content__name {
     grid-area: name;
     margin-block-end: 5px;
-    text-align: left; /* Adjusted text alignment */
+    text-align: left;
   }
   .about-content__title-profession {
     grid-area: proftitle;
     margin-block-end: 15px;
-    text-align: left; /* Adjusted text alignment */
+    text-align: left;
   }
   .about-content__text-paragraph {
     grid-area: text;
@@ -1256,35 +1235,28 @@ section {
     justify-content: flex-start;
     margin-block-start: 20px;
   }
-
   .about-content__divider {
     grid-area: divider;
   }
-
   .about-content__experience-img-container {
     grid-area: exp_image;
     width: 100%;
     max-width: 300px;
     margin-block-end: 0;
     justify-self: center;
-    align-self: start; /* Adjusted alignment */
+    align-self: start;
   }
   .about-content__experience-img {
     height: auto;
     width: 100%;
     max-height: 300px;
   }
-
-  /* Group Experience and Examinations logically */
   .about-content__experience-details {
-    /* Create a conceptual area */
     grid-area: exp_details;
   }
   .about-content__examinations-details {
-    /* Create a conceptual area */
     grid-area: exam_details;
   }
-
   .about-content__examination-container {
     flex-direction: row;
     justify-content: space-between;
@@ -1292,69 +1264,36 @@ section {
     gap: 40px;
   }
   .about-content__examination-container-item {
-    width: 48%; /* Allow items to take up space */
+    width: 48%;
   }
-
-  /* --- Services & Core Values Sections --- */
   .services-content__service-card-container,
   .services-content__core-value-card-container {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(280px, 1fr)
-    ); /* Adjusted responsive grid */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 40px;
   }
-
-  @media screen and (min-width: 768px) {
-    .services-content__service-card-container,
-    .services-content__core-value-card-container {
-      grid-template-columns: repeat(2, 1fr); /* Two columns on larger screens */
-      gap: 30px;
-    }
-    .services-content__service-card-item:nth-child(3),
-    .services-content__core-value-card-item:nth-child(3) {
-      grid-column: 1 / span 2; /* Make the third item span both columns */
-      justify-self: center; /* Center the third item */
-      max-width: 400px; /* Optional: limit the width of the centered card */
-    }
+  .services-content__service-card-item:nth-child(3),
+  .services-content__core-value-card-item:nth-child(3) {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    max-width: 400px;
   }
-
-  @media screen and (min-width: 1200px) {
-    .services-content__service-card-container,
-    .services-content__core-value-card-container {
-      grid-template-columns: repeat(
-        3,
-        1fr
-      ); /* Three columns on larger screens */
-      gap: 40px; /* Adjusted gap */
-    }
-    .services-content__service-card-item:nth-child(3),
-    .services-content__core-value-card-item:nth-child(3) {
-      grid-column: auto; /* Reset grid column for three columns */
-      justify-self: auto; /* Reset justify-self */
-      max-width: none; /* Remove max-width */
-    }
-  }
-
   .services-content__service-card-item,
   .services-content__core-value-card-item {
     width: 100%;
-    grid-template-columns: 1fr; /* Single column layout */
-    grid-template-rows: auto auto; /* Auto rows for content */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     place-items: center;
     place-content: center;
     row-gap: calc(10 / 16 * 1rem);
-    background-color: var(--card-bg-color); /* Added background */
-    border: 1px solid var(--card-border-color); /* Added border */
-    border-radius: 8px; /* Added border-radius */
-    padding: 30px 20px; /* Added padding */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added box-shadow */
-    text-align: center; /* Centered text */
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   .service-content__service-img, /* Corrected class name */
-   .services-content__service-card-img {
+  .services-content__service-card-img {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     justify-self: center;
@@ -1366,39 +1305,29 @@ section {
     text-align: center;
     font-size: calc(18 / 16 * 1rem);
   }
-
   .services-content__service-heading,
   .services-content__core-value-heading,
   .testimonial-content__testimonial-heading {
     font-size: calc(32 / 16 * 1rem);
     margin-block-end: calc(60 / 16 * 1rem);
   }
-
-  /* --- Testimonial Section --- */
   .testimonial-carousel {
-    overflow: visible; /* Allow controls to be outside */
+    overflow: visible;
   }
-
   .testimonial-slide {
-    display: flex; /* Ensure slides are flex items */
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 40px; /* Adjusted padding */
+    padding: 40px;
   }
-
   .testimonial-content__testimonial-card-container {
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(300px, 1fr)
-    ); /* Adjusted responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
   }
-
   .testimonial-content__testimonial-card-item {
-    /* Reset mobile grid settings */
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
     gap: 15px;
@@ -1408,7 +1337,6 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     align-content: start;
   }
-
   .testimonial-content__testimonial-card-img {
     grid-row: 1 / 2;
     justify-self: center;
@@ -1416,14 +1344,12 @@ section {
     height: calc(100 / 16 * 1rem);
     border-radius: 50%;
   }
-
   .testimonial-content__testimonial-card-name {
     grid-row: 2 / 3;
     justify-self: center;
     font-size: calc(20 / 16 * 1rem);
     font-weight: bold;
   }
-
   .testimonial-content__testimonial-card-comment {
     grid-row: 3 / 4;
     margin-block-end: 0;
@@ -1434,53 +1360,45 @@ section {
     font-style: italic;
     color: #555;
   }
-
-  /* --- Contact Section --- */
   .contact-content {
     text-align: left;
-    display: flex; /* Changed to flex for simpler centering */
-    flex-direction: column; /* Stack elements */
-    align-items: center; /* Center items horizontally */
-    gap: 20px; /* Adjusted gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
-
   .contact-content__info-wrapper {
     grid-column: 1 / 2;
   }
   .contact-content__form-container {
     grid-column: 2 / 3;
     width: 100%;
-    max-width: 600px; /* Ensure max-width is applied */
-    padding: 40px; /* Adjusted padding */
+    max-width: 600px;
+    padding: 40px;
   }
-
   .contact-content__contact-title {
-    font-size: calc(20 / 16 * 1rem); /* Adjusted font size */
+    font-size: calc(20 / 16 * 1rem);
     margin-bottom: 5px;
-    text-align: center; /* Centered title */
+    text-align: center;
     text-transform: uppercase;
   }
   .contact-content__contact-heading {
     font-size: calc(36 / 16 * 1rem);
-    margin-bottom: 30px; /* Adjusted margin */
-    text-align: center; /* Centered heading */
+    margin-bottom: 30px;
+    text-align: center;
   }
   .contact-content__contact-paragraph {
     margin-bottom: 30px;
   }
-
   .contact-content__email-container {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 20px;
   }
-
-  /*.contact-content__email-icon img { width: 24px; height: 24px; }*/
   .contact-content__email-text {
     font-weight: bold;
   }
-
   .contact-content__form-container label {
     font-size: calc(16 / 16 * 1rem);
   }
@@ -1488,30 +1406,37 @@ section {
     padding: 12px 25px;
     font-size: 1rem;
     cursor: pointer;
-    display: inline-block; /* Make button inline-block */
-    margin-top: 20px; /* Added margin */
+    display: inline-block;
+    margin-top: 20px;
   }
-
   .footer-content {
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
   }
-
   .top__bar {
     right: 30px;
     bottom: 30px;
     width: calc(40 / 16 * 1rem);
     height: calc(40 / 16 * 1rem);
   }
-} /* End of @media screen and (min-width: 768px) */
+}
 
-/* Optional: Larger Desktop Styles */
 @media screen and (min-width: 1200px) {
+  .services-content__service-card-container,
+  .services-content__core-value-card-container {
+    grid-template-columns: repeat(3, 1fr); /* Three columns on larger screens */
+    gap: 40px; /* Adjusted gap */
+  }
+  .services-content__service-card-item:nth-child(3),
+  .services-content__core-value-card-item:nth-child(3) {
+    grid-column: auto; /* Reset grid column for three columns */
+    justify-self: auto; /* Reset justify-self */
+    max-width: none; /* Remove max-width */
+  }
   .main-content__name {
     font-size: calc(64 / 16 * 1rem); /* Adjusted font size */
   }
-
   .about-content {
     grid-template-areas:
       "title title"
@@ -1525,7 +1450,6 @@ section {
       "exam_details exam_details";
     gap: 40px 100px; /* Adjusted gap */
   }
-
   .about-content__experience-img-container {
     grid-area: exp_image; /* Ensure correct area */
   }
@@ -1535,21 +1459,18 @@ section {
   .about-content__examinations-details {
     grid-area: exam_details; /* Ensure correct area */
   }
-
   .services-content__service-card-container,
   .services-content__core-value-card-container {
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    gap: 40px; /* Adjusted gap */
+    /* already set above, but keep for clarity */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
   }
-
   .testimonial-carousel {
     padding: 0 50px; /* Add padding for controls */
   }
-
   .testimonial-slide {
     padding: 40px; /* Adjusted padding */
   }
-
   .carousel-controls {
     position: absolute;
     top: 50%;
@@ -1560,7 +1481,6 @@ section {
     padding: 0 20px; /* Add padding */
     pointer-events: none; /* Allow clicks to pass through */
   }
-
   .carousel-controls button {
     pointer-events: auto; /* Re-enable clicks on buttons */
     background-color: rgba(
@@ -1571,54 +1491,43 @@ section {
     ); /* Semi-transparent background */
     border-color: rgba(204, 204, 204, 0.8); /* Semi-transparent border */
   }
-
   .carousel-controls button:hover {
     background-color: rgba(255, 255, 255, 1);
     border-color: rgba(187, 187, 187, 1);
   }
-
   .carousel-controls .prev-slide {
     margin-left: -60px; /* Position outside carousel */
   }
-
   .carousel-controls .next-slide {
     margin-right: -60px; /* Position outside carousel */
   }
-
   .contact-content {
     flex-direction: row; /* Side-by-side layout */
     justify-content: center; /* Center content */
     gap: 80px; /* Adjusted gap */
     align-items: flex-start; /* Align items to the top */
   }
-
   .contact-content__info-wrapper {
     width: 40%; /* Allocate width */
   }
-
   .contact-content__form-container {
     width: 50%; /* Allocate width */
     max-width: none; /* Remove max-width */
   }
-
   .contact-content__contact-title {
     text-align: left; /* Align title left */
     text-transform: uppercase;
   }
-
   .contact-content__contact-heading {
     text-align: left; /* Align heading left */
   }
-
   .site-footer {
     padding-block: 40px 30px; /* Adjusted padding */
     font-size: 1rem;
   }
-
   .footer-container {
     width: 90%;
   }
-
   .footer-top {
     flex-direction: row;
     justify-content: space-between;
@@ -1628,38 +1537,31 @@ section {
     padding-bottom: 40px;
     margin-bottom: 30px;
   }
-
   .footer-logo {
     flex-direction: row;
     gap: 15px;
     /* flex-shrink: 0; */
   }
-
   .footer-logo img {
     width: 60px;
     height: 60px;
   }
-
   .footer-nav ul {
     flex-direction: row;
     gap: 25px;
   }
-
   .footer-social {
     gap: 25px;
   }
-
   .footer-bottom {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     text-align: left;
   }
-
   /* .footer-copyright {
         text-align: center;
       } */
-
   /* .footer-legal {
         text-align: center;
       } */
@@ -1667,11 +1569,27 @@ section {
 
 /* Improved Responsiveness */
 @media screen and (max-width: 767px) {
-  /* Adjusted breakpoint */
+  body.nav-open {
+    overflow: hidden !important;
+  }
   .header__menu {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 10px;
+    position: fixed;
+    left: -100%;
+    top: calc(60 / 16 * 1rem);
+    width: 100%;
+    height: calc(100vh - 60 / 16 * 1rem);
+    align-items: center;
+    background-color: var(--nav-bg-color);
+    transition: left 0.3s ease-in-out;
+    z-index: 1;
+    padding-top: 20px;
+  }
+  .header__menu.active {
+    left: 0;
+    display: flex;
   }
 
   .main-content {
@@ -1880,4 +1798,23 @@ body {
   .contact-content__contact-title {
     text-transform: uppercase;
   }
+}
+
+body.nav-open {
+  overflow: auto !important;
+}
+.header__menu {
+  display: flex;
+  position: static;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  gap: calc(30 / 16 * 1rem);
+  padding: 0;
+  transition: none;
+  align-items: center;
+}
+.header__menu.active {
+  left: unset;
 }
