@@ -1575,23 +1575,41 @@ section {
   .header__menu {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     position: fixed;
-    left: -100%;
-    top: calc(60 / 16 * 1rem);
-    width: 100%;
-    height: calc(100vh - 60 / 16 * 1rem);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
     align-items: center;
-    background-color: var(--nav-bg-color);
+    justify-content: center;
+    background: rgba(20, 20, 20, 0.98);
+    z-index: 2000;
+    padding: 0;
     transition: left 0.3s ease-in-out;
-    z-index: 1;
-    padding-top: 20px;
   }
   .header__menu.active {
-    left: 0;
     display: flex;
   }
-
+  .header__menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 2100;
+  }
+  .header__menu-close {
+    display: block;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    z-index: 2101;
+    cursor: pointer;
+    padding: 0 12px;
+    line-height: 1;
+  }
   .main-content {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1604,22 +1622,18 @@ section {
     text-align: center;
     gap: 20px 0; /* Adjusted gap */
   }
-
   .main-content__stats {
     flex-direction: column; /* Stack stats vertically */
     gap: 20px; /* Adjusted gap */
   }
-
   .main-content__stats_divider {
     width: calc(80 / 16 * 1rem); /* Adjusted width */
     height: 1px; /* Adjusted height */
     margin-inline: auto; /* Centered divider */
   }
-
   .main-content__stat-item {
     align-items: center; /* Centered stat items */
   }
-
   .about-content {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1637,7 +1651,6 @@ section {
     gap: 30px 0; /* Adjusted gap */
     text-align: center; /* Centered content */
   }
-
   .about-content__title,
   .about-content__name,
   .about-content__title-profession,
@@ -1645,38 +1658,30 @@ section {
   .about-content__examinations-heading {
     text-align: center; /* Centered headings and name */
   }
-
   .about-content__label-item {
     justify-content: center; /* Centered labels */
   }
-
   .about-content__btn {
     justify-content: center; /* Centered button */
   }
-
   .about-content__experience-item,
   .about-content__examination-container-item {
     text-align: center; /* Centered text in cards */
   }
-
   .about-content-examination-item {
     text-align: center; /* Centered examination items */
   }
-
   .services-content__service-card-container,
   .services-content__core-value-card-container {
     grid-template-columns: 1fr; /* Single column */
     gap: 20px; /* Adjusted gap */
   }
-
   .testimonial-carousel {
     padding: 0; /* Remove padding */
   }
-
   .testimonial-slide {
     padding: 20px; /* Adjusted padding */
   }
-
   .carousel-controls {
     position: static; /* Position controls normally */
     transform: none; /* Remove transform */
@@ -1684,38 +1689,31 @@ section {
     padding: 0; /* Remove padding */
     pointer-events: auto; /* Enable pointer events */
   }
-
   .contact-content {
     flex-direction: column;
     text-align: center;
     gap: 20px; /* Adjusted gap */
   }
-
   .contact-content__form-container {
     padding: 20px; /* Adjusted padding */
     text-align: center; /* Centered form content */
   }
-
   .contact-content__form-container label {
     text-align: center; /* Centered labels */
   }
-
   .contact-content__form-container button {
     display: inline-block; /* Make button inline-block */
     margin-top: 10px; /* Added margin */
   }
-
   .footer-top {
     flex-direction: column;
     text-align: center;
   }
-
   .footer-bottom {
     flex-direction: column;
     text-align: center;
     gap: 10px; /* Adjusted gap */
   }
-
   .footer-legal {
     font-size: 0.8rem; /* Further reduce font size */
   }

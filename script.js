@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("menuToggle");
   const navMenu = document.getElementById("mainMenu");
+  const menuClose = document.getElementById("menuClose");
   const body = document.body;
   const focusableSelectors =
     'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])';
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.add("active");
     navMenu.classList.add("active");
     body.classList.add("nav-open");
+    if (menuClose) menuClose.style.display = "block";
     hamburger.setAttribute("aria-expanded", "true");
     lastFocusedElement = document.activeElement;
     trapFocus(navMenu);
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
     body.classList.remove("nav-open");
+    if (menuClose) menuClose.style.display = "";
     hamburger.setAttribute("aria-expanded", "false");
     releaseFocusTrap();
     if (lastFocusedElement) lastFocusedElement.focus();
@@ -53,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
     navMenu
       .querySelectorAll(".header__menu-item a")
       .forEach((n) => n.addEventListener("click", closeMenu));
+  }
+  if (menuClose) {
+    menuClose.addEventListener("click", closeMenu);
   }
 
   // Focus trap for accessibility
