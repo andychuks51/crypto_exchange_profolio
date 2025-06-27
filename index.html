@@ -13,6 +13,9 @@
       href="./images/icons/icons8-right-50.png"
       type="image/x-icon"
     />
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
     <!-- Smartsupp Live Chat script -->
     <script type="text/javascript">
       var _smartsupp = _smartsupp || {};
@@ -42,15 +45,14 @@
     >
   </head>
   <body>
-    <div class="top__bar">
-      <a class="top__bar-link flex" href="#top">
-        <img src="./images/icons/icons8-arrow-up-16.png" alt="" />
-      </a>
-    </div>
-    <!-- Skip to content for accessibility -->
-    <a href="#home" class="skip-to-content" tabindex="0"
+    <a href="#main-content" class="skip-link" tabindex="0"
       >Skip to main content</a
     >
+    <div class="top__bar">
+      <a class="top__bar-link flex" href="#top" aria-label="Back to top">
+        <img src="./images/icons/icons8-arrow-up-16.png" alt="Back to top" />
+      </a>
+    </div>
     <header
       style="
         background-image: url('./images/header_bg.png');
@@ -59,52 +61,39 @@
         color: white;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
       "
+      role="banner"
+      aria-label="Site Header"
     >
-      <nav
-        class="header__nav flex"
-        aria-label="Main Navigation"
-        role="navigation"
-        id="mainNav"
-      >
-        <div class="header__logo flex" role="banner">
+      <nav class="header__nav flex" aria-label="Main Navigation">
+        <div
+          class="header__logo flex"
+          role="img"
+          aria-label="Rebecca Lee Jin Logo"
+        >
           <img src="./images/LJ.png" alt="Rebecca Lee Jin Logo" />
           <div class="header__logo-text">Rebecca Lee Jin</div>
         </div>
-        <ul class="header__menu flex" role="menu" id="mainMenu">
-          <li class="header__menu-item" role="menuitem">
-            <a href="#home">Home</a>
+        <ul class="header__menu flex" role="menubar">
+          <li class="header__menu-item" role="none">
+            <a href="#home" role="menuitem">Home</a>
           </li>
-          <li class="header__menu-item" role="menuitem">
-            <a href="#about">About</a>
+          <li class="header__menu-item" role="none">
+            <a href="#about" role="menuitem">About</a>
           </li>
-          <li class="header__menu-item" role="menuitem">
-            <a href="#services">Services</a>
+          <li class="header__menu-item" role="none">
+            <a href="#services" role="menuitem">Services</a>
           </li>
-          <li class="header__menu-item" role="menuitem">
-            <a href="#testimonial">Testimonials</a>
+          <li class="header__menu-item" role="none">
+            <a href="#testimonial" role="menuitem">Testimonials</a>
           </li>
-          <li class="header__menu-item" role="menuitem">
-            <a href="#contact">Contact</a>
+          <li class="header__menu-item" role="none">
+            <a href="#contact" role="menuitem">Contact</a>
           </li>
         </ul>
-        <button
-          class="header__menu-toggle"
-          aria-label="Toggle Navigation Menu"
-          aria-controls="mainMenu"
-          aria-expanded="false"
-          id="menuToggle"
-        >
+        <button class="header__menu-toggle" aria-label="Toggle Navigation Menu">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </button>
-        <button
-          class="header__menu-close"
-          aria-label="Close Navigation Menu"
-          id="menuClose"
-          tabindex="0"
-        >
-          &times;
         </button>
         <a href="#contact" class="header__get-started-btn">Get Started</a>
       </nav>
@@ -124,9 +113,11 @@
       </div>
     </header>
     <main
-      id="home"
+      id="main-content"
       class="main-container"
       style="max-width: 1200px; margin: 0 auto"
+      tabindex="-1"
+      aria-label="Main Content"
     >
       <section class="main-content">
         <div class="main-content__intro">Hi, I' am</div>
